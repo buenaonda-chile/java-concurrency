@@ -51,6 +51,7 @@ public class DistributedLockAop {
         }
     }
 
+    //전달받은 Lock의 이름을 Spring Expression Language(SpEL 언어)로 파싱
     private Object getDynamicValue(String[] parameterNames, Object[] args, String key) {
         ExpressionParser parser = new SpelExpressionParser();
         StandardEvaluationContext context = new StandardEvaluationContext();
