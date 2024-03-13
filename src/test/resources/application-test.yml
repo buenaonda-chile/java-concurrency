@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:test
+    username: root
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+        use_sql_comments: true
+        show_sql: false
+        hbm2ddl:
+          auto: update
+    defer-datasource-initialization: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
